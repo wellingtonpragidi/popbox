@@ -1,0 +1,197 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: 0;
+}
+body {
+    margin: 0 0;
+}
+.screen_reader {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    font-size: 14px;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important
+    word-wrap: normal !important;
+}
+/* galeria > miniaturas */
+#gallery {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+#gallery img {
+    cursor: pointer;
+}
+#gallery img:hover {
+    filter: brightness(87%);
+    transition: .3s;
+}
+/* popup modal */
+#popbox {
+    position: fixed;
+    display: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: #999;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.60) inset;
+    font-family: system-ui;
+    z-index: 8891;
+}
+#popbox .container {
+    position: absolute;
+    inset: 0;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    margin: auto;
+    background-color: #121617;
+    box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.05), 0 0 2px 1px rgba(255, 255, 255, 0.08) inset;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+}
+/* container > media (imagem) e info do arquivo */
+#popbox .wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+#popbox .view, #popbox .aside {
+    position: relative;
+    height: 100%;
+}
+#popbox .view {
+    max-width: 70%;
+    flex: 0 0 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 14px;
+    border-right: 2px solid #000;
+}
+#popbox .view img {
+    position: relative;
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+#popbox .aside {
+    max-width: 30%;
+    flex: 0 0 30%;
+    border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+/* control > buttons prev, next e close */
+#popbox .control {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: end;
+    border-bottom: 2px solid #000;
+}
+#popbox .prev, #popbox .next, #popbox .close {
+    position: flex;
+    width: 60px;
+    height: 100%;
+    flex: 0 0 60px;
+    color: #BBB;
+    background-color: transparent;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+    border-right: 2px solid #000;
+    cursor: pointer;
+    user-select: none;
+    transition: .3s;
+}
+#popbox .prev:hover, #popbox .next:hover, #popbox .close:hover {
+    color: #EEE;
+    background-color: rgba(255, 255, 255, 0.10);
+}
+#popbox .prev[disabled], #popbox .next[disabled] {
+    color: #AAA;
+    box-shadow: 0 -3px 7px 3px rgba(0, 0, 0, 0.50) inset;
+    opacity: 0.6;
+    filter: brightness(110%);
+    cursor: default;
+}
+#popbox .prev[disabled]:hover, #popbox .next[disabled]:hover {
+    background-color: transparent;
+}
+#popbox .prev [icon], #popbox .next [icon], #popbox .close [icon] {
+    position: relative;
+    top: 4px;
+}
+#popbox .close {
+    border-right: none;
+}
+/* info do arquivo */
+#popbox .info {
+    position: relative;
+    height: calc(100% - 60px);
+    padding: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+#popbox .info h3 {
+    margin-top: -4px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.30);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 1.5px 1.5px #121617, 0 0 #000, 1.5px 1.5px #121617;
+}
+#popbox .info p {
+    font-size: .85rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+}
+#popbox .filenumber {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-family: 'Ubuntu', system-ui;
+    color: #666;
+}
+#popbox .filenumber span {
+    display: inline-block;
+    font-size: 1.1rem;
+}
+/* input filename */
+#popbox label {
+    position: relative;
+    font-size: .65rem;
+    margin-top: 35px;
+    margin-left: 0;
+    color: #888;
+}
+#popbox label span {
+    margin-left: 3px;
+}
+#popbox input {
+    width: 100%;
+    padding: 4px 5px 4.5px 6px;
+    font-size: .75rem;
+    font-weight: lighter;
+    margin-top: 4px;
+    background-color: #191F20;
+    border: 1px solid #000;
+    color: #BBBBBB;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.10), 0 0 2px 0 rgba(0, 0, 0, 0.50) inset;
+}

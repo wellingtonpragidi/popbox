@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="popbox.css">
+<title>popbox</title>
+</head>
+<body>
+    <div id="gallery">
+        <img src="https://picsum.photos/id/351/300/200" onclick="popbox.current(1)" />
+        <img src="https://picsum.photos/id/350/300/200" onclick="popbox.current(2)" />
+        <img src="https://picsum.photos/id/424/300/200" onclick="popbox.current(3)" />
+        <img src="https://picsum.photos/id/449/300/200" onclick="popbox.current(4)" />
+    </div>
+    <div id="popbox">
+        <div class="container">
+            <div class="wrapper">
+                <div class="view">
+                    <img data-image="1" src="https://picsum.photos/id/351/1100/400">
+                    <img data-image="2" src="https://picsum.photos/id/350/1100/400">
+                    <img data-image="3" src="https://picsum.photos/id/424/1100/400">
+                    <img data-image="4" src="https://picsum.photos/id/449/1100/400">
+                </div>
+                <div class="aside">
+                    <div class="control">
+                        <button class="prev"><span icon="chevronleft" size="27"></span></button>
+                        <button class="next"><span icon="chevron_right" size="27"></span></button>
+                        <button class="close"><span icon="x" size="35"></span></button>
+                    </div>
+                    <div class="info">
+                        <h3>Detalhes do arquivo</h3>
+                        <p><span icon="calendar" top="2"></span> 02/05/2024 23:07</p>
+                        <p><strong>Nome:</strong> image.webp</p>
+                        <p><strong>Tipo:</strong> image/webp</p>
+                        <p><strong>Tamanho:</strong> 1,16MB</p>
+                        <p><strong>Dimensão: </strong> 1100x450</p>
+                        <label><span>URL</span>
+                            <input type="url" value="https://webship.com.br/assets/img/image.webp" readonly />
+                        </label>
+                        <div class="filenumber">
+                            Arquivo <span class="current">$n</span> de <span class="total">4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="popbox.js"></script>
+<script src="/js/icons.js"></script>
+</body>
+</html>
